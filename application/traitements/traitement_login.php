@@ -31,6 +31,8 @@ if(isset($_POST["mail"]) || isset($_POST["pass"])){
         $id = $pdo->lastInsertId();
         header('Location: '.URL_INDEX."?action=profile&id=".$id);
         //header('Location: '.URL_INDEX."?action=profile&id=".$login["id"]);
+
+        
     } 
 
     
