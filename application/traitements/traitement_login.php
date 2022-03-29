@@ -11,10 +11,11 @@ if(isset($_POST["mail"]) || isset($_POST["pass"])){
 
    
     $login = log_in($_POST["mail"], $_POST["pass"]);
-
+    
+    
     if($login != null){
         
-    
+        
         $_SESSION["id"]= $login["id"];
         $_SESSION["email"] = $_POST["mail"];
         $_SESSION["invitations"] = get_invitations_by_user($login["id"]);
@@ -23,11 +24,12 @@ if(isset($_POST["mail"]) || isset($_POST["pass"])){
         exit;
 
     } else {
-
-        $sql = "INSERT INTO `users` (`id`, `email`, `mdp`, `pseudo`) VALUES (NULL, '?', SHA1('?'), '');";
+        echo "wrong id/pass";
+        $sql = "INSERT INTO `users` (`id`, `email`, `mdp`) VALUES ( NULL, ?, SHA1(?) );";
         $query = $pdo->prepare($sql);
-        $query->execute([$_POST["mail"],$_POST["pass"] ]);
-        header('Location: '.URL_INDEX."?action=profile&id=".$login["id"]);
+        $query->execute( [ $_POST["mail"],$_POST["pass"] ]);
+        $id = $pdo->lastInsertId();
+        header('Location: '.URL_INDEX."?action=profile&id=".$id);
         //header('Location: '.URL_INDEX."?action=profile&id=".$login["id"]);
     } 
 
