@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Qui offre à qui ?</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bellota&family=Monoton&family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{URL_CSS}}normalize.css">
     <link rel="stylesheet" href="{{URL_CSS}}icon.css">
@@ -22,11 +23,13 @@
       <a href="{{URL_INDEX}}?action=create">@icon(['icon'=>'calendar-plus','text'=>'Créer un évènement'])</a>
 
       @if(isset($_SESSION['id']))
-        <a href="{{URL_INDEX}}?action=profile">@icon(['icon'=>'user','text'=>$_SESSION['email']])</a>
-        <a href="{{URL_INDEX}}?action=logout">@icon(['icon'=>'user-x','text'=>"Logout"])</a>
+      <a href="{{URL_INDEX}}?action=preference">@icon(['icon'=>'cog','text'=>'Préférences'])</a>
+      <a href="{{URL_INDEX}}?action=event">@icon(['icon'=>'calendar','text'=>'Evénements'])</a>
+      <a href="{{URL_INDEX}}?action=logout">@icon(['icon'=>'user-x','text'=>$_SESSION['pseudo']])</a>
       @else
-      <a href="{{URL_INDEX}}?action=login">@icon(['icon'=>'user','text'=>"login"])</a>
-      @endif
+      <a href="{{URL_INDEX}}?action=login">@icon(['icon'=>'user-check','text'=>'Connexion'])</a>
+      @endisset
+
     </nav>
 
     <div class="container-h">
@@ -46,7 +49,10 @@
     </div>
 
     <footer>&copy; MMI Création 2022 -- tous droits réservés
-    <a href="{{URL_INDEX}}?action=legal">Mentions légales</a>
+    <a href="{{URL_INDEX}}?action=legal">@icon(['icon'=>'id-card','text'=>'Mention légal'])</a>
     </footer>
   </body>
 </html>
+<!DOCTYPE html>
+
+
