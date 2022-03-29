@@ -22,6 +22,7 @@
       <a href="{{URL_INDEX}}?action=create">@icon(['icon'=>'calendar-plus','text'=>'Créer un évènement'])</a>
 
       @if(isset($_SESSION['id']))
+        <a href="{{URL_INDEX}}?action=pref">@icon(['icon'=>'cog','text'=>"preferences"])</a>
         <a href="{{URL_INDEX}}?action=profile">@icon(['icon'=>'user','text'=>$_SESSION['email']])</a>
         <a href="{{URL_INDEX}}?action=logout">@icon(['icon'=>'user-x','text'=>"Logout"])</a>
       @else
