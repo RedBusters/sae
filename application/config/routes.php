@@ -47,6 +47,7 @@ add_route('legal','pages/legal');
 add_route('logout','traitements/logout');
 add_route('login','pages/login');
 add_route('pref','pages/preference');
+add_route('preference','traitements/traite_pref');
 add_route('process_login','traitements/traitement_login',['mail' => 'STRING', 'pass' => 'STRING'],'POST');
 add_route('profile','pages/login', ['id' => 'INT'], 'GET');
 
