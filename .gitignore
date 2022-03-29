@@ -1,0 +1,42 @@
+/cache/
+/application/config/config.php
+
+##### Composer
+composer.phar
+/vendor/
+
+#### backup files
+*~
+*.bak
+._*
+.nfs*
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+##### Dropbox
+# Dropbox settings and caches
+.dropbox
+.dropbox.attr
+.dropbox.cache
+
+##### VisualStudioCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+##### NetBeans
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/

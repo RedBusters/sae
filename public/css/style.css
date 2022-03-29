@@ -1,0 +1,197 @@
+body{
+
+  background-image: radial-gradient(farthest-corner at 40px 40px,  #ff9558, #ff895c, #ff7c61, #ff686c, #ff537d, #ff3e93, #ff2ead);
+  color: #ffffdf;
+  font-family: 'Bellota', cursive;
+  font-size: 1.2em;
+
+  min-height: 100vh;
+
+}
+
+html {
+  background: #fff;
+}
+
+
+/*/////////////////////////// Texte ////////////////////////*/
+
+h1  {
+  width: 5em;
+  font-family: 'Monoton', cursive;
+  font-weight: 300;
+  line-height: 1.4em;
+  word-spacing: 0.3em;
+  font-size: 4em;
+  padding: 0 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+
+h2 {
+  font-family: 'Titillium Web', sans-serif;
+  text-align: center;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  font-size: 2em;
+}
+
+h3 {
+  font-family: 'Titillium Web', sans-serif;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  font-size: 1.5em;
+}
+
+h4 {
+  font-family: 'Bellota', cursive;
+  text-align: center;
+  margin: 0;
+  padding: 0.5em;
+}
+
+p {
+    font-family: 'Bellota', cursive;
+}
+
+ul {
+  max-width: 25em;
+  margin: auto;
+}
+
+li {
+  margin: 1em;
+}
+
+/*//////////////// Formulaires ////////////////*/
+
+input,
+textarea {
+  font-size: 1em;
+  border-radius: 0.3em;
+  background-color: #ffffdf;
+  color: #640064;
+  border: none;
+  box-shadow: 0.05em 0.05em 0.25em #33177766;
+  padding: 0.1em 0.3em;
+}
+
+h2 input {
+  color: #ffffdf;
+  background-color:  #7733EE;
+  margin: 1em auto;
+}
+
+input[type="submit"] {
+  cursor:pointer;
+  font-family: 'Titillium Web', sans-serif;
+  background-color: #4455CC;
+
+}
+
+h3 textarea {
+  margin-left: 3em;
+}
+
+
+
+/*//////////////////////// Zones ////////////////////*/
+
+
+    body {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+    @media screen and (max-width:70rem){
+   .container-h {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-grow: 1;
+  }
+}
+
+.container-h {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+h1 {
+  display: inline-flex;
+  flex-direction: column;
+  flex-grow: 0;
+}
+
+h1 img {  /* Logo */
+  display:block;
+  margin: 0.8em 1em 0 0.5em;
+}
+
+.container-v {
+  flex-grow: 1;
+
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cta {
+  display: flex;
+  justify-content: space-around;
+}
+
+nav {
+  flex-grow: 0;
+  text-align: right;
+  margin: 0.5em;
+}
+
+nav a{
+  margin: 0 0.2em;
+  text-decoration: none;
+}
+
+main {
+  width:90%;
+  display: inline-block;
+  padding: 0 0.5em;
+  vertical-align: top;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main a {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+main p {
+  padding: 0.5em;
+}
+
+footer {
+  flex-grow: 0;
+  color: #640064;
+  font-family: 'Titillium Web', sans-serif;
+  border-top: 0.1rem solid #640064;
+  margin-bottom: 0;
+  padding: 0.8em 2em;
+}
+
+/*//////////////////////////// Animation //////////////*/
+
+a .icon,
+h3 a,
+h2 input{
+  transition-property: transform;
+  transition-duration: 0.2s;
+}
+
+a:hover .icon,
+h3 a:hover,
+h2 input:hover{
+  transform: scale(1.15,1.15);
+}

@@ -1,0 +1,79 @@
+
+/*////////////////// Commun ////////////////////////////*/
+
+.event,
+.invitation {
+  box-sizing: border-box;
+  border-radius: 0.5em;
+  box-shadow: 0.05em 0.05em 0.25em #4455CC11;
+  background-color: #4455CC22;
+  padding: 0;
+  margin: 0.5em auto;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+}
+
+/*/////////////////// Invitation ////////////////////////*/
+
+.invitation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.invitation p{
+  flex: 1 0 15%;
+  margin: 0.5em;
+}
+
+.invitation textarea{
+  flex: 3 1 70%;
+  margin: 0.5em;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.invitation img {
+  flex: none;
+  margin: 0.5em;
+}
+
+/*////////////////////// Event //////////////////////////*/
+
+.event_container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:2%;
+  margin-right: 1em;
+}
+
+.event {
+  width: 49%;
+}
+
+.event a {
+  text-decoration: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.event h3 {
+  margin-top: 0em;
+  margin-bottom: 0.2em;
+  border-bottom: 0.1rem solid #ffffdf;
+}
+
+.event h3 .icon {
+  margin-left: -0.3em;
+  margin-top: -0.3em;
+  margin-bottom: 0.5em;
+}
+
+.event a:hover h4 .icon {
+  transform: none;
+}
+
+.event:hover {
+  background-color: #4455CC66;
+}

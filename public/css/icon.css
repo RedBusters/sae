@@ -1,0 +1,53 @@
+.icon {
+  box-shadow: 0.05em 0.05em 0.25em #33177766;
+}
+
+.icon img,
+img.icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  padding:0.2em;
+  vertical-align: middle;
+}
+
+img.icon,
+span.icon {
+  background-color: #7733EE;
+  border-radius: 0.6em;
+  margin-right: 0.6em;
+  mix-blend-mode:multiply;
+}
+
+span.icon {
+  color: #ffffff;
+  display: inline-block;
+  padding-left: 0em;
+  padding-right: 0.4em;
+}
+
+/*/////////////////////// Variantes (ok, no, neutral) ///////////////*/
+
+img.icon-ok,
+span.icon-ok {
+  background-color: #229933;
+  color: #ffffdf;
+  box-shadow: 0.05em 0.05em 0.25em #11551188;
+  mix-blend-mode: normal;
+}
+
+img.icon-no,
+span.icon-no {
+  background-color: #CF0022;
+  color: #ffffdf;
+  box-shadow: 0.05em 0.05em 0.25em #66001188;
+  mix-blend-mode: normal;
+}
+
+img.icon-neutral,
+span.icon-neutral {
+  background-color: #4455CC;
+  color: #ffffdf;
+  box-shadow: 0.05em 0.05em 0.25em #66001188;
+  mix-blend-mode: normal;
+}
