@@ -29,6 +29,8 @@ if(isset($_POST["mail"]) || isset($_POST["pass"])){
         $query->execute([$_POST["mail"],$_POST["pass"] ]);
         header('Location: '.URL_INDEX."?action=profile&id=".$login["id"]);
         //header('Location: '.URL_INDEX."?action=profile&id=".$login["id"]);
+
+        
     } 
 
     
