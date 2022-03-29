@@ -14,11 +14,7 @@ function log_in($email, $password){
 
   $result = $query->fetch();
   if($result != false){
-
-    
     return ["id" => $result['id'], "email" => $email];
-   
-
   } else {
     return null;
   }
