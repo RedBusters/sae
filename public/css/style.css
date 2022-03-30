@@ -354,4 +354,17 @@ nav a{
   footer {
     font-size: 0.48em;
   }
+
+}
+
+@media only screen and (max-width=1200px){
+  main {
+    width:40%;
+    display: inline-block;
+    padding: 0 0.5em;
+    vertical-align: top;
+    margin-left: auto;
+    margin-right: auto;
+  
+  }
 }
