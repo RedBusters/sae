@@ -1,0 +1,98 @@
+h2 + p{
+    text-align: center;
+}
+
+
+form{
+    width: 50%;
+    margin-inline: auto;
+}
+
+textarea{
+    display: block;
+    width: 80%;
+    margin-inline: auto;
+    resize: vertical;
+    min-height: 10ch;
+}
+
+[type='submit']{
+    width: max-content;
+    margin-inline: auto;
+    background-color: #7722bd;
+    display: block;
+    color: white;
+    outline: 0;
+    border: 0;
+    border-radius: .3em;
+    margin-block-start: 5rem;
+    font-size: 1.5rem;
+    padding-block: .3em;
+    padding-inline: .3em;
+    cursor: pointer;
+    transition: transform .3s;
+}
+[type='submit']:hover, [type='submit']:focus-visible{
+    transform: scale(1.15);
+}
+
+
+[type='radio']{
+    display: none;
+}
+label{
+    background-color: #ffffdf;
+    color: black;
+    border-radius: .3em;
+    padding-block: .3em;
+    padding-inline: .3em;
+    cursor: pointer;
+    display: block;
+}
+[type='radio']:checked + label{
+    background-color: #700a8f;
+    color: white;
+}
+
+.preference{
+    display: grid;
+    gap: 1rem;
+    margin-block: 5rem;
+}
+.categorie{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+.categorie *{
+    box-sizing: border-box;
+}
+.categorie .name{
+    display: flex;
+    align-items: center;
+}
+.categorie .select{
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+.categorie p{
+    padding: 0;
+    margin: 0;
+}
+
+@media screen and (max-width: 60rem){
+    form{
+        width: 70%;
+    }
+    .categorie{
+        font-size: 1.2em;
+        grid-template-columns: 1fr;
+        gap: .5rem;
+        margin-block: .5rem;
+    }
+    .categorie .select{
+        margin-inline: auto;
+    }
+
+}
