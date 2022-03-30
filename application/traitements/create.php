@@ -29,6 +29,6 @@ $_SESSION['pseudo'] = $pseudo;
 
 /////// Redirection sur la page de l'évènement créé
 
-header('Location: '.URL_INDEX.'?action=event&id='.$idInvitation);
+header('Location: '.URL_INDEX.'?action=event&id='.$idEvent);
 
 ?>

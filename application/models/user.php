@@ -66,10 +66,16 @@ function check_access($idInvitation){
  */
 function get_invitations_by_user($idUser){
   global $pdo;
+/*   $sql = "SELECT * FROM users WHERE id=?";
+  $query = $pdo->prepare($sql);
+  $query->execute([$idUser]);
+  $user = $query->fetch(); */
+  
   $sql = "SELECT event.*, invitation.* , users.email as pseudoTarget, users.id as idUserTarget FROM event JOIN invitation ON event.id= invitation.idEvent JOIN users ON invitation.idTarget=users.id WHERE idTarget=?";
   $query = $pdo->prepare($sql);
   $query->execute([$idUser]);
   $result = $query->fetchall();
+  var_dump($result);
   return $result;
 }
 

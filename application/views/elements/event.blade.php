@@ -15,7 +15,6 @@
         ?>
     <h4>
     @if($event['status'] =='accepted' && has_passed($event["reveal_dt"]) )
-
     @icon(['icon'=>'gift','text'=>" < $event[max] €"])
     @endif
     @if($event['status'] =='invite' && !has_passed($event["reveal_dt"]) )
