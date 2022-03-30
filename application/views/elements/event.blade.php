@@ -18,8 +18,8 @@
     @icon(['icon'=>'gift','text'=>" < $event[max] €"])
     @endif
     @if($event['status'] =='invite' && !has_passed($event["reveal_dt"]) )
-    <a href="{{URL_INDEX}}?action=inv_process&accept=1"> @icon(['icon'=>'user-check','class'=>'icon-neutral', 'text'=>" Accepter "])</a>
-    <a href="{{URL_INDEX}}?action=inv_process&accept=0"> @icon(['icon'=>'user-x','class'=>'icon-neutral', 'text'=>" Refuser "])</a>
+    <a href="{{URL_INDEX}}?action=inv_process&accept=1&inv_id={{ $event['id'] }}"> @icon(['icon'=>'user-check','class'=>'icon-neutral', 'text'=>" Accepter "])</a>
+    <a href="{{URL_INDEX}}?action=inv_process&accept=0&inv_id={{ $event['id'] }}"> @icon(['icon'=>'user-x','class'=>'icon-neutral', 'text'=>" Refuser "])</a>
     @endif
     </h4>
 
