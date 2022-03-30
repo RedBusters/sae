@@ -49,7 +49,7 @@ add_route('login','pages/login');
 add_route('pref','pages/preference');
 add_route('preference','traitements/traite_pref',['pref' => 'STRING', 'animaux' => 'INT','cuisine' => 'INT','enfants' => 'INT','livres' => 'INT','maison' => 'INT','mode' => 'INT','loisirs' => 'INT','vins' => 'INT', ],'POST');
 add_route('process_login','traitements/traitement_login',['mail' => 'STRING', 'pass' => 'STRING'],'POST');
-add_route('profile','pages/login', ['id' => 'INT'], 'GET');
+add_route('profile','pages/login');
 
 
 
