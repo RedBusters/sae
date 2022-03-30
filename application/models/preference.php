@@ -74,6 +74,10 @@ function set_preference($idUser,$idCategory,$score){
     $sql= "INSERT INTO preferences (iduser, idcategorie, valeur) VALUES (?,?,?);";
     $query = $pdo->prepare($sql);
     $query->execute([$idUser, $idCategory, $score]);
+  } else {
+    $sql= "UPDATE preferences SET valeur=? WHERE iduser=? AND idcategorie=?";
+    $query = $pdo->prepare($sql);
+    $query->execute([$idUser, $idCategory]);
   }
 
 }
