@@ -52,4 +52,6 @@ add_route('process_login','traitements/traitement_login',['mail' => 'STRING', 'p
 add_route('profile','pages/login', ['id' => 'INT'], 'GET');
 
 
+
+
 ?>

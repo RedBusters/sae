@@ -2,6 +2,7 @@
 require_once 'application/models/invitation.php';
 require_once 'application/core/date.php';
 require_once 'application/helpers/token.php';
+require_once 'application/models/preference.php';
 
 ////// Récupération des informations sur l'évènement
 
@@ -23,6 +24,8 @@ if ($event != null) { // Si l'évènement a été trouvé
   }
   $_SESSION['idInvitation'] = $idInvitation;
   $_SESSION['pseudo'] = $pseudo;
+
+  $_SESSION['pref_cible']= get_preferences($event["idTarget"]);
 } else { // Si on n'a pas trouvé l'évènement
   echo $blade->run('errors.404',['log'=>'Cet évènement n\'existe pas']);
   exit();
