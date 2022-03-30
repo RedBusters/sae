@@ -9,6 +9,7 @@
         echo "<h4>Apportez un cadeau pour ".$event['pseudoTarget']."</h4>";
       } else {
         echo "<h4>Reveal la cible le : ".$event["reveal_dt"]."</h4>";
+        
       }
 
         ?>
