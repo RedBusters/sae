@@ -75,7 +75,6 @@ function get_invitations_by_user($idUser){
   $query = $pdo->prepare($sql);
   $query->execute([$idUser]);
   $result = $query->fetchall();
-  var_dump($result);
   return $result;
 }
 

@@ -12,11 +12,13 @@ define('INVITE','invite');
 function get_invitation_by_token($pseudo,$token){
   global $pdo;
   $sql = 'SELECT event.*, i1.id AS idInvitation, i1.pseudo, i1.status,
-                 i2.pseudo AS pseudoTarget
+                 i2.pseudo AS pseudoTarget,
+                 i3.pseudo AS pseudoAdmin
           FROM event
           JOIN invitation AS i1 ON i1.idEvent = event.id
           JOIN invitation AS i2 ON i2.id = i1.idTarget
-          WHERE (i1.pseudo = ?) AND (i1.token = ?)';
+          JOIN invitation AS i3 ON i3.idEvent = event.id
+          WHERE (i1.pseudo = ?) AND (i1.token = ?) AND i3.status="'.ADMIN.'"';
   $query = $pdo->prepare($sql);
   $query->execute([$pseudo,$token]);
   if ($result = $query->fetch()){
@@ -33,11 +35,13 @@ function get_invitation_by_token($pseudo,$token){
 function get_invitation_by_id($idInvitation){
   global $pdo;
   $sql = 'SELECT event.*, i1.id AS idInvitation, i1.pseudo, i1.status,
-                i2.pseudo AS pseudoTarget
-          FROM event
-          JOIN invitation AS i1 ON i1.idEvent = event.id
-          JOIN invitation AS i2 ON i2.id = i1.idTarget
-          WHERE i1.id = ?';
+          i2.pseudo AS pseudoTarget,
+          i3.pseudo AS pseudoAdmin
+   FROM event
+   JOIN invitation AS i1 ON i1.idEvent = event.id
+   JOIN invitation AS i2 ON i2.id = i1.idTarget
+   JOIN invitation AS i3 ON i3.idEvent = event.id
+          WHERE i1.id = ? AND i3.status="'.ADMIN.'"';
   $query = $pdo->prepare($sql);
   $query->execute([$idInvitation]);
   if ($result = $query->fetch()){
@@ -127,10 +131,6 @@ function create_invitations($idEvent,$pseudos){
     $query->execute($invitation);
     $invitation['id'] = $pdo->lastInsertId();
   }
-
-  //Calcul des cibles
-  update_targets($invitations);
-  return $invitations;
 }
 
 

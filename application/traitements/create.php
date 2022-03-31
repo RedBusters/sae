@@ -6,7 +6,7 @@ require_once 'application/models/invitation.php';
 
 $pseudos = explode(PHP_EOL,$pseudos); // Découpage en lignes
 array_unshift($pseudos,$pseudo); // Ajout du créateur au début
-foreach ($pseudos as &$value) {
+foreach ($pseudos as $value) {
   $value = htmlspecialchars(trim($value)); // Nettoyage des espaces et caractères spéciaux
 }
 $pseudos = array_filter($pseudos); // retrait des lignes vides
@@ -18,7 +18,7 @@ if (count($pseudos)< 3){ // Si il n'y a pas assez d'invités
 
 /////////////////////////////////////// creation de l'évènement
 
-$idEvent = create_event($description,  $event_dt, $max, $reveal_dt);
+$idEvent = create_event($description, $event_dt, $max, $reveal_dt);
 $invitations = create_invitations($idEvent, $pseudos);
 $idInvitation = $invitations[0]['id'];
 

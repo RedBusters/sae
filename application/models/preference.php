@@ -55,7 +55,7 @@ function get_all_preferences($idUser){
 function get_preferences($idUser){
   global $pdo;
   $table = [];
-  $sql ="SELECT * FROM preference WHERE idUser =? AND valeur NOT NULL";
+  $sql ="SELECT * FROM preferences WHERE idUser =? AND (valeur != NULL) ";
   $query = $pdo->prepare($sql);
   $query->execute([$idUser]);
 }

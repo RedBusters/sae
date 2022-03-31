@@ -14,7 +14,7 @@ require_once 'application/core/database.php';
    $query->execute([$description, $event_dt, $max, $reveal_dt]);
    $id = $pdo->lastInsertId();
    return $id;
-
+ }
    function get_event_info($id_event){
     global $pdo;
     $sql= "SELECT * FROM event WHERE id=?";
@@ -22,7 +22,7 @@ require_once 'application/core/database.php';
     $query->execute([$id_event]);
     return $query->fetch();
    }
- }
+ 
 
 
 
