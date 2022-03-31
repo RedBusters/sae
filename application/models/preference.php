@@ -36,10 +36,12 @@ function set_description($idUser, $description){
 
 function get_all_preferences($idUser){
   global $pdo;
-  $table = [];
-  $sql ="SELECT * FROM preferences WHERE idUser =?";
+  $sql ="SELECT preferences.valeur as score, categories.nom as description, preferences.idcategorie as idcategorie FROM preferences 
+  JOIN categories ON preferences.idcategorie= categories.id WHERE iduser =?";
   $query = $pdo->prepare($sql);
   $query->execute([$idUser]);
+  return $query->fetchall();
+  
   
 }
 
@@ -65,7 +67,7 @@ function get_preferences($idUser){
 
 function set_preference($idUser,$idCategory,$score){
   global $pdo;
-
+  
   $sql ="SELECT * FROM preferences WHERE idUser =? AND idcategorie=?";
   $query = $pdo->prepare($sql);
   $query->execute([$idUser, $idCategory]);
@@ -80,6 +82,15 @@ function set_preference($idUser,$idCategory,$score){
     $query->execute([$score, $idUser, $idCategory]);
   }
 
+}
+
+function get_categories(){
+  global $pdo;
+  $sql ="SELECT * FROM categories";
+  $query = $pdo->prepare($sql);
+  $query->execute();
+  $result = $query->fetchall();
+  return $result;
 }
 
 ?>
