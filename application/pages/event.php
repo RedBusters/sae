@@ -12,9 +12,9 @@ require_once 'application/models/user.php';
 if($action =='invitation'){
   $event = get_invitation_by_token($pseudo, $token);
 } else if ($action == 'event'){
-  $event = get_event_info($id);
-} 
-
+  $event = get_invitation_by_id($id);
+}
+/* var_dump($event); */
 if ($event != null) { // Si l'évènement a été trouvé
   extract($event);
 
@@ -27,12 +27,12 @@ if ($event != null) { // Si l'évènement a été trouvé
     $_SESSION['pref_cible']= get_preferences($event["idTarget"]);
     
     if ($status== ADMIN){
-      $invitations = get_invitations_by_event($id);
+      $invitations = get_invitations_by_event($event['id']);
       $titre = "Détail de l'évènement";
     } else {
 
     }
-    echo $blade->run('event',compact('pseudo','titre','event','invitations'));
+//    echo $blade->run('event',compact('pseudo','titre','event','invitations'));
 
   } else{
     if(isset($_SESSION["id"])){
@@ -42,7 +42,7 @@ if ($event != null) { // Si l'évènement a été trouvé
       foreach($invitations as $invit){
         //if($invit["id"])
       }
-      echo $blade->run('event',compact('event'));
+//      echo $blade->run('event',compact('event'));
     }
     
   }
@@ -51,6 +51,7 @@ if ($event != null) { // Si l'évènement a été trouvé
   echo $blade->run('errors.404',['log'=>'Cet évènement n\'existe pas']);
   exit();
 }
+$titre='Titre';
 /////////////////////////// Lancement de la page avec blade
-//echo $blade->run('event',compact('pseudo','titre','event','invitations'));
+echo $blade->run('event',compact('pseudo','titre','event','invitations'));
 ?>

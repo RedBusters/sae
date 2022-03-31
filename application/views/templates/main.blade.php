@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{URL_CSS}}icon.css">
     <link rel="stylesheet" href="{{URL_CSS}}elements.css">
     <link rel="stylesheet" href="{{URL_CSS}}style.css">
-
+    <link rel="stylesheet" href="{{URL_CSS}}preference.css">
     <link rel="apple-touch-icon" sizes="180x180" href="{{URL_IMG}}apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{URL_IMG}}favicon-32x32.png">
 

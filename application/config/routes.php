@@ -47,7 +47,7 @@ add_route('legal','pages/legal');
 add_route('logout','traitements/logout');
 add_route('login','pages/login');
 add_route('pref','pages/preference');
-add_route('preference','traitements/traite_pref',['pref' => 'STRING', 'animaux' => 'INT','cuisine' => 'INT','enfants' => 'INT','livres' => 'INT','maison' => 'INT','mode' => 'INT','loisirs' => 'INT','vins' => 'INT', ],'POST');
+add_route('preference','traitements/traite_pref',['commentaire' => 'STRING', 'animaux' => 'INT','cuisine' => 'INT','enfants' => 'INT','livres_et_journaux' => 'INT','maison' => 'INT','mode_et_accessoires' => 'INT','passions_et_loisirs' => 'INT','vins_et_spiritueux' => 'INT', ],'GET');
 add_route('process_login','traitements/traitement_login',['mail' => 'STRING', 'pass' => 'STRING'],'POST');
 add_route('profile','pages/login');
 

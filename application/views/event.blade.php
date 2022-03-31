@@ -13,7 +13,7 @@
 
 
 @section('cta')
-<h3><a href="{{URL_INDEX}}?action=list&id={{ $event['id'] }}" download="liste.txt">@icon([icon=>"import", text=>"Télécharger", style=>"icon-neutral"])</a></h3>
+<h3><a href="{{URL_INDEX}}?action=list&id={{ $event['id'] }}" download="liste.txt">@icon(['icon'=>"import", 'text'=>"Télécharger", 'class'=>"icon-neutral"])</a></h3>
 
 
 

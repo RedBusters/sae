@@ -37,7 +37,7 @@ function set_description($idUser, $description){
 function get_all_preferences($idUser){
   global $pdo;
   $table = [];
-  $sql ="SELECT * FROM preference WHERE idUser =?";
+  $sql ="SELECT * FROM preferences WHERE idUser =?";
   $query = $pdo->prepare($sql);
   $query->execute([$idUser]);
   
@@ -66,7 +66,7 @@ function get_preferences($idUser){
 function set_preference($idUser,$idCategory,$score){
   global $pdo;
 
-  $sql ="SELECT * FROM preference WHERE idUser =? AND idcategorie=?";
+  $sql ="SELECT * FROM preferences WHERE idUser =? AND idcategorie=?";
   $query = $pdo->prepare($sql);
   $query->execute([$idUser, $idCategory]);
   $result = $query->fetch();
@@ -77,7 +77,7 @@ function set_preference($idUser,$idCategory,$score){
   } else {
     $sql= "UPDATE preferences SET valeur=? WHERE iduser=? AND idcategorie=?";
     $query = $pdo->prepare($sql);
-    $query->execute([$idUser, $idCategory]);
+    $query->execute([$score, $idUser, $idCategory]);
   }
 
 }

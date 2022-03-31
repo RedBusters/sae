@@ -1,7 +1,5 @@
 @extends('templates.main')
-@section('links')
-    <link rel="stylesheet" href="public/css/preference.css">
-@endsection
+
 @section('content')
 
 
@@ -11,6 +9,8 @@
 
 
 <form method="get" action="{{URL_INDEX}}?action=preference">
+
+        <input type="hidden" name="action" value="preference">
         <textarea name="commentaire" id="commentaire"></textarea>
         <button type="submit">Valider</button>
 
@@ -25,11 +25,11 @@
                         <p>@icon(['icon'=> $icon]) {{ $categorie }}</p>
                     </div>
                     <div class="select">
-                        <input type="radio" name="{{ pregreplace('/\s+/', '', strtolower($categorie)) }}" id="{{ pregreplace('/\s+/', '', strtolower($categorie)) }}_0" value="0">
-                        <label for="{{ pregreplace('/\s+/', '', strtolower($categorie)) }}0">x</label>
+                        <input type="radio" name="{{ preg_replace('/\s+/', '_', strtolower($categorie)) }}" id="{{ preg_replace('/\s+/', '_', strtolower($categorie)) }}_0" value="0" checked="true">
+                        <label for="{{ preg_replace('/\s+/', '_', strtolower($categorie)) }}0">x</label>
                         @for($i = 1; $i < 6; $i++)
-                            <input type="radio" name="{{ pregreplace('/\s+/', '', strtolower($categorie)) }}" id="{{ pregreplace('/\s+/', '', strtolower($categorie)) }}{{ $i }}" value="{{ $i }}">
-                            <label for="{{ pregreplace('/\s+/', '', strtolower($categorie)) }}_{{ $i }}">{{$i}}</label>
+                            <input type="radio" name="{{ preg_replace('/\s+/', '_', strtolower($categorie)) }}" id="{{ preg_replace('/\s+/', '_', strtolower($categorie)) }}_{{ $i }}" value="{{ $i }}">
+                            <label for="{{ preg_replace('/\s+/', '_', strtolower($categorie)) }}_{{ $i }}">{{$i}}</label>
                         @endfor
                     </div>
                 </div>

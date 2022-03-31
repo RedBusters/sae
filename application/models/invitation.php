@@ -39,7 +39,7 @@ function get_invitation_by_id($idInvitation){
           i3.pseudo AS pseudoAdmin
    FROM event
    JOIN invitation AS i1 ON i1.idEvent = event.id
-   JOIN invitation AS i2 ON i2.id = i1.idTarget
+   LEFT JOIN invitation AS i2 ON i2.id = i1.idTarget
    JOIN invitation AS i3 ON i3.idEvent = event.id
           WHERE i1.id = ? AND i3.status="'.ADMIN.'"';
   $query = $pdo->prepare($sql);
@@ -131,6 +131,7 @@ function create_invitations($idEvent,$pseudos){
     $query->execute($invitation);
     $invitation['id'] = $pdo->lastInsertId();
   }
+  return $invitations;
 }
 
 
