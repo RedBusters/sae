@@ -38,10 +38,8 @@ if ($event != null) { // Si l'évènement a été trouvé
 
   } else{
     if(isset($_SESSION["id"])){
-      var_dump($event); 
       $invitations = get_invitations_by_event($event['id']);
       //$has_access = false;
-      var_dump($invitations);
       foreach($invitations as $invit){
         //if($invit["id"])
       }
