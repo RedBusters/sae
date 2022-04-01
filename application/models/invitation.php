@@ -135,6 +135,7 @@ function create_invitations($idEvent,$pseudos){
     $invitation['id'] = $pdo->lastInsertId();
     link_invitation($pdo->lastInsertId(), get_user_by_mail($pseudo));
   }
+  update_targets($invitations);
   return $invitations;
 }
 

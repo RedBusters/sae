@@ -2,4 +2,4 @@
 @section('content')
     bienvenue {{$_SESSION["email"]}}
 
-@endsection
+@endsection 

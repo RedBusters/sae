@@ -14,10 +14,10 @@ if($action =='invitation'){
 } else if ($action == 'event'){
   $event = get_invitation_by_id($id);
 }
-/* var_dump($event); */
+ /* var_dump($event);  */
 if ($event != null) { // Si l'évènement a été trouvé
   extract($event);
-
+  $_SESSION["idEvent"] = $_GET["id"];
   if($action =='invitation'){
     
     $titre="$pseudo, vous êtes invité !";
@@ -27,7 +27,9 @@ if ($event != null) { // Si l'évènement a été trouvé
     $_SESSION['pref_cible']= get_preferences($event["idTarget"]);
     
     if ($status== ADMIN){
+      
       $invitations = get_invitations_by_event($event['id']);
+      
       $titre = "Détail de l'évènement";
     } else {
 
@@ -36,9 +38,10 @@ if ($event != null) { // Si l'évènement a été trouvé
 
   } else{
     if(isset($_SESSION["id"])){
-      $invitations = get_invitations_by_user($_SESSION["id"]);
-      $has_access = false;
-
+      var_dump($event); 
+      $invitations = get_invitations_by_event($event['id']);
+      //$has_access = false;
+      var_dump($invitations);
       foreach($invitations as $invit){
         //if($invit["id"])
       }
@@ -51,7 +54,7 @@ if ($event != null) { // Si l'évènement a été trouvé
   echo $blade->run('errors.404',['log'=>'Cet évènement n\'existe pas']);
   exit();
 }
-$titre='Titre';
+$titre="Détail de l'évènement";
 /////////////////////////// Lancement de la page avec blade
 echo $blade->run('event',compact('pseudo','titre','event','invitations'));
 ?>

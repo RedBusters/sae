@@ -16,9 +16,10 @@
 <h3><a href="{{URL_INDEX}}?action=list&id={{ $event['id'] }}" download="liste.txt">@icon(['icon'=>"import", 'text'=>"Télécharger", 'class'=>"icon-neutral"])</a></h3>
 
 
-
 @if($event['status']==ADMIN)
 <h3>Envoyez à chaque invité le lien correspondant</h3>
+
+
 
 
 
