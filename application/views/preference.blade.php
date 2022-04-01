@@ -50,10 +50,10 @@
 
                     <div class="select">
                         <input type="radio" name="{{ preg_replace('/\s+/', '_', strtolower($categorie)) }}" id="{{ preg_replace('/\s+/', '_', strtolower($categorie)) }}_0" value="0" 
-                        @if($prefs_titre[$categorie]== 0)
+                        @if($prefs_titre[$categorie]== '0')
                         checked="true"
                         @endif>
-                        <label for="{{ preg_replace('/\s+/', '_', strtolower($categorie)) }}0">x</label>
+                        <label for="{{ preg_replace('/\s+/', '_', strtolower($categorie)) }}_0">x</label>
                         @for($i = 1; $i < 6; $i++)
                             <input type="radio" name="{{ preg_replace('/\s+/', '_', strtolower($categorie)) }}" id="{{ preg_replace('/\s+/', '_', strtolower($categorie)) }}_{{ $i }}" value="{{ $i }}" 
                             @if($prefs_titre[$categorie]== $i)

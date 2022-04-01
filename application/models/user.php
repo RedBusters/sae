@@ -89,4 +89,13 @@ function get_future_invitations($idUser){
 
 }
 
+function get_user_by_mail($mail){
+  global $pdo;
+  $sql = "SELECT * FROM users WHERE email=?";
+  $query = $pdo->prepare($sql);
+  $query->execute([$mail]);
+  $result = $query->fetch();
+  return $result;
+}
+
 ?>

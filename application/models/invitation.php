@@ -1,6 +1,7 @@
 <?php
 require_once 'application/core/database.php';
 require_once 'application/core/token.php';
+require_once 'application/models/user.php';
 
 define('ADMIN','admin');
 define('INVITE','invite');
@@ -101,8 +102,9 @@ function get_confirmed_invitations($idEvent){
 
 function link_invitation($idUser,$idInvitation){
   global $pdo;
-
-  //TODO
+  $sql = "UPDATE invitation SET idUser=? where id=?";
+  $query = $pdo->prepare($sql);
+  $query->execute([$idUser, $idInvitation]);
 }
 
 /***
@@ -111,9 +113,10 @@ function link_invitation($idUser,$idInvitation){
 
 function create_invitations($idEvent,$pseudos){
   $invitations = [];
-
-  //Création des données à insérer
+  // Création des données à insérer
+  
   foreach($pseudos as $pseudo){
+
     $invitations[] = [
       'token' => generate_token(20),
       'idEvent' => $idEvent,
@@ -130,6 +133,7 @@ function create_invitations($idEvent,$pseudos){
   foreach($invitations as &$invitation){
     $query->execute($invitation);
     $invitation['id'] = $pdo->lastInsertId();
+    link_invitation($pdo->lastInsertId(), get_user_by_mail($pseudo));
   }
   return $invitations;
 }
